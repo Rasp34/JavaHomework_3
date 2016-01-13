@@ -25,6 +25,12 @@ public class MyClass {
     * Несколько методов для приватной переменной
     * */
 
+//    Конструктор для метода
+    public MyClass(int publicInt, String localString) {
+        this.publicInt = publicInt;
+        this.localString = localString;
+    }
+
     public void setPrivateInt(int privateInt) {
         this.privateInt = privateInt;
     }

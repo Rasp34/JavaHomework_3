@@ -1,5 +1,6 @@
 package homework_03;
 
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 
@@ -7,7 +8,7 @@ public class ReflectionAPI {
 
     public static void main(String[] args) {
 
-        MyClass newClass = new MyClass();
+        MyClass newClass = new MyClass(22, "DDRS12S223");
         Class aclass = newClass.getClass();
 
         System.out.println(newClass + "\n" + aclass.getName() + "\n" + aclass.getSuperclass());
@@ -39,11 +40,41 @@ public class ReflectionAPI {
             }
 
             System.out.println("Name: " + field.getName() + "; Type: " + fieldType + "; Value: " + currentValue);
+        }
 
+        System.out.println("Constructor:");
 
-
+        Constructor[] constr = aclass.getDeclaredConstructors();
+        for (Constructor currentConstr :
+                constr) {
+            Class[] paramTypes = currentConstr.getParameterTypes();
+            System.out.print("(");
+            for (Class paramType:
+                paramTypes ) {
+                System.out.print(paramType.getName() + "; ");
+            }
+            System.out.println(")");
 
         }
+
+        /*
+        * Динамически создадим экземпляр класса
+        * */
+
+        try {
+/*
+            Class class1 = Class.forName("DClass");
+            Object object = class1.newInstance();
+            DClass dClass = (DClass) object;*/
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+
 
     }
 }
