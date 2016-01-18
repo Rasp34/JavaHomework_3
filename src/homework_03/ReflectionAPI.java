@@ -46,12 +46,11 @@ public class ReflectionAPI {
         System.out.println("Constructor:");
 
         Constructor[] constr = aclass.getDeclaredConstructors();
-        for (Constructor currentConstr :
-                constr) {
+        for (Constructor currentConstr  :   constr) {
             Class[] paramTypes = currentConstr.getParameterTypes();
             System.out.print(currentConstr.getName() + " (");
-            for (Class paramType:
-                paramTypes ) {
+
+            for (Class paramType    :   paramTypes ) {
                 System.out.print(paramType.getName() + "; ");
             }
             System.out.println(")");
